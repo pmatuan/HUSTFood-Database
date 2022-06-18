@@ -1,20 +1,14 @@
 DROP DATABASE hustfood
 CREATE DATABASE hustfood
 USE hustfood
---Restaurants and customers
+--Customers
 CREATE TABLE customer (
    id int  NOT NULL,
    customer_name varchar(255)  NOT NULL,
-   building varchar(255)  NOT NULL,
    phone_number char(10)  NOT NULL,
    email varchar(255)  NOT NULL,
    password varchar(255)  NOT NULL,
    CONSTRAINT customer_pk PRIMARY KEY (id)
-);
-CREATE TABLE restaurant (
-   id int  NOT NULL,
-   address varchar(255)  NOT NULL,
-   CONSTRAINT restaurant_pk PRIMARY KEY (id)
 );
 CREATE TABLE payment_details(
   payment_id int NOT NULL,
@@ -37,20 +31,29 @@ CREATE TABLE order_status (
    id int  NOT NULL,
    placed_order_id int  NOT NULL,
    status_catalog_id int  NOT NULL,
-   -- time_order time DEFAULT GETDATE(),
+   time_order time DEFAULT GETDATE(),
    CONSTRAINT order_status_pk PRIMARY KEY (id)
 );
+
+CREATE TABLE payment(
+  id int NOT NULL,
+  placed_order_id int NOT NULL,
+  payment_type char(255) NOT NULL CHECK(payment_type IN ('CASH_ON_DELIVERY','ONLINE_PAYMENT')) DEFAULT 'CASH_ON_DELIVERY',
+  payment_status char(255) NOT NULL CHECK(payment_status IN('NOT_CONFIRMED','CONFIRMED')) DEFAULT 'NOT_CONFIRMED',
+  CONSTRAINT PK_payment PRIMARY KEY(id)
+)
+
 CREATE TABLE placed_order (
    id int  NOT NULL,
-   restaurant_id int  NOT NULL,
-   order_time time DEFAULT GETDATE(),
-   estimated_delivery_time time DEFAULT GETDATE(),
-   food_ready time DEFAULT GETDATE(),
-   delivery_address varchar(255)  NOT NULL,
    customer_id int  NULL,
+   restaurant_id int  NOT NULL,
+   -- order_time time DEFAULT GETDATE(),
    price int  NOT NULL,
    discount int  NOT NULL,
    final_price int  NOT NULL,
+   delivery_address varchar(255)  NOT NULL,
+   estimated_delivery_time time DEFAULT GETDATE(),
+   food_ready time DEFAULT GETDATE(),
    comment text  NULL,
    delivered BIT DEFAULT 0,
    CONSTRAINT placed_order_pk PRIMARY KEY (id)
@@ -88,17 +91,13 @@ CREATE TABLE in_order (
    CONSTRAINT in_order_pk PRIMARY KEY (id)
 );
 
-CREATE TABLE payment(
-  id int NOT NULL,
-  placed_order_id int NOT NULL,
-  payment_type char(255) NOT NULL CHECK(payment_type IN ('CASH_ON_DELIVERY','ONLINE_PAYMENT')) DEFAULT 'CASH_ON_DELIVERY',
-  payment_status char(255) NOT NULL CHECK(payment_status IN('NOT_CONFIRMED','CONFIRMED')) DEFAULT 'NOT_CONFIRMED',
-  CONSTRAINT PK_payment PRIMARY KEY(id)
-)
 
-
-
---Menu
+--Restaurant
+CREATE TABLE restaurant (
+   id int  NOT NULL,
+   address varchar(255)  NOT NULL,
+   CONSTRAINT restaurant_pk PRIMARY KEY (id)
+);
 CREATE TABLE offer (
    id int  NOT NULL,
    date_active_from date  NULL,
