@@ -6,15 +6,14 @@ CREATE TABLE comment (
     id int  NOT NULL,
     placed_order_id int  NOT NULL,
     comment_text text  NOT NULL,
-    is_complaint bit  NOT NULL,
-    is_praise bit  NOT NULL,
+    vote char(1)  NULL CHECK(vote IN ('1','2','3','4','5', NULL)) DEFAULT NULL,
     CONSTRAINT comment_pk PRIMARY KEY  (id)
 );
 
 -- Table: customer
 CREATE TABLE customer (
     id int  NOT NULL,
-    customer_name varchar(255)  NOT NULL,
+    customer_name nvarchar(255)  NOT NULL,
     phone_number varchar(255)  NOT NULL,
     email varchar(255)  NOT NULL,
     password varchar(255)  NOT NULL,
@@ -25,7 +24,7 @@ CREATE TABLE customer (
 CREATE TABLE customer_payment (
     id int  NOT NULL,
     customer_id int  NOT NULL,
-    payment_type char(20) NOT NULL CHECK(payment_type IN ('MOMO','ZALOPAY', 'VTMONEY', 'SHOPEEPAY', 'CASH')) DEFAULT 'CASH',
+    payment_type char(20)  NOT NULL CHECK(payment_type IN ('MOMO','ZALOPAY', 'VTMONEY', 'SHOPEEPAY', 'CASH')) DEFAULT 'CASH',
     CONSTRAINT customer_payment_pk PRIMARY KEY  (id)
 );
 
@@ -55,8 +54,9 @@ CREATE TABLE in_order (
 -- Table: menu_item
 CREATE TABLE menu_item (
     id int  NOT NULL,
-    item_name varchar(255)  NOT NULL,
-    category_name varchar(255)  NOT NULL,
+    item_name nvarchar(255)  NOT NULL,
+    category_name nvarchar(255)  NOT NULL,
+    image image  NOT NULL,
     description text  NOT NULL,
     ingredients text  NOT NULL,
     price int  NOT NULL,
@@ -88,8 +88,8 @@ CREATE TABLE order_status (
     id int  NOT NULL,
     placed_order_id int  NOT NULL,
     time_order time  NOT NULL,
-    status_name varchar(255)  NOT NULL CHECK(status_name IN ('ADDED_TO_CART','CONFIRMED','PAYMENT_CONFIRMED','DELIVERED')),
-    payment_status varchar(255) NOT NULL CHECK(payment_status IN('NOT_CONFIRMED','CONFIRMED')) DEFAULT 'NOT_CONFIRMED',
+    order_status nvarchar(255)  NOT NULL CHECK(status_name IN ('ADDED_TO_CART','CONFIRMED','PAYMENT_CONFIRMED','DELIVERED')),
+    payment_status nvarchar(255)  NOT NULL CHECK(payment_status IN('NOT_CONFIRMED','CONFIRMED')) DEFAULT 'NOT_CONFIRMED',
     CONSTRAINT order_status_pk PRIMARY KEY  (id)
 );
 
@@ -103,7 +103,7 @@ CREATE TABLE placed_order (
     delivery_fee int  NOT NULL,
     final_price int  NOT NULL,
     payment_type char(255)  NOT NULL CHECK(payment_type IN ('CASH_ON_DELIVERY','ONLINE_PAYMENT')) DEFAULT 'CASH_ON_DELIVERY',
-    delivery_address varchar(255)  NOT NULL,
+    delivery_address nvarchar(255)  NOT NULL,
     estimated_delivery_time time  NOT NULL,
     food_ready time  NULL,
     comment text  NULL,
@@ -114,8 +114,8 @@ CREATE TABLE placed_order (
 -- Table: restaurant
 CREATE TABLE restaurant (
     id int  NOT NULL,
-    restaurant_name varchar(255)  NOT NULL,
-    address varchar(255)  NOT NULL,
+    restaurant_name nvarchar(255)  NOT NULL,
+    restaurant_address nvarchar(255)  NOT NULL,
     CONSTRAINT restaurant_pk PRIMARY KEY  (id)
 );
 
@@ -185,4 +185,5 @@ ALTER TABLE placed_order ADD CONSTRAINT placed_order_customer
     FOREIGN KEY (customer_id)
     REFERENCES customer (id);
 
+-- End of file.
 

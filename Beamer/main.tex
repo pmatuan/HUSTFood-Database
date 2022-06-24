@@ -54,6 +54,9 @@
 			%     \item Đàm Ngọc Khánh - 20205207
 			% \end{itemize}
 	\end{frame}
+	\begin{frame}[plain, noframenumbering]{Các thành phần chính}
+		\tableofcontents
+	\end{frame}
 	%------------------------------------------------
 	\begin{frame}{Tổng quan Database}
 		\begin{figure}[ht!]
@@ -61,11 +64,8 @@
 			\label{fig:ass1}
 		\end{figure}
 	\end{frame}
-	\begin{frame}{Các thành phần chính}
-		\tableofcontents
-	\end{frame}
 	\section{Customer}
-	\begin{frame}
+	\begin{frame}[plain, noframenumbering]
 		\textcolor{structure}{\Huge{\textbf{Customer}}}
 	\end{frame}
 	%------------------------------------------------
@@ -78,7 +78,7 @@
 	\begin{frame}{Customer}
 		\textcolor{structure}{\large{\textbf{Customer:}}}
 		\begin{itemize}
-			\item \textbf{id:} Mã khách hàng (Primary key)
+			\item \textbf{id:} Primary key
 			\item \textbf{customer$\_$name:} Tên khách hàng
 			\item \textbf{phone$\_$number:} Số điện thoại khách hàng
 			\item \textbf{email:} Mail khách hàng
@@ -86,13 +86,13 @@
 		\end{itemize}
 		\textcolor{structure}{\large{\textbf{Customer\_payment}}}
 		\begin{itemize}
-			\item \textbf{id:} (Primary key)
+			\item \textbf{id:} Primary key
 			\item \textbf{customer\_id:} Foreign key customer(id)
 			\item \textbf{payment\_type:} Phương thức thanh toán
 		\end{itemize}
 	\end{frame}
 	\section{Order}
-	\begin{frame}
+	\begin{frame}[plain, noframenumbering]
 		\textcolor{structure}{\Huge{\textbf{Order}}}
 	\end{frame}
 	\begin{frame}{Order}
@@ -103,7 +103,7 @@
 	\end{frame}
 	\begin{frame}{Placed Order}
 		\begin{itemize}
-			\item \textbf{id:}
+			\item \textbf{id:} Primary key
 			\item \textbf{customer\_id:} Foreign key customer(id)
 			\item \textbf{restaurant\_id:} Foreign key restaurant(id)
 			\item \textbf{price:} Giá ban đầu
@@ -121,39 +121,38 @@
 	
 	\begin{frame}{Order status}
 		\begin{itemize}
-			\item \textbf{id:} Mã trạng thái đơn hàng
-			\item \textbf{placed\_order\_id:} Mã đơn đặt hàng (Foreign key placed\_order(id))
+			\item \textbf{id:} Primary key
+			\item \textbf{placed\_order\_id:} Foreign key placed\_order(id)
 			\item \textbf{time\_order:} Thời gian đặt hàng
-			\item \textbf{status\_name:} Trạng thái đơn hàng (Thêm vào giỏ/ Xác nhận/ Đã thanh toán / Đã giao)
+			\item \textbf{order\_status:} Trạng thái đơn hàng (Thêm vào giỏ/ Xác nhận/ Đã thanh toán / Đã giao)
 			\item \textbf{payment\_status:} Trạng thái thanh toán
 		\end{itemize}
 	\end{frame}
 	
 	\begin{frame}{In order}
 		\begin{itemize}
-			\item \textbf{id:} Mã
-			\item \textbf{placed\_order\_id:} Mã đơn đặt hàng (Foreign key placed\_order(id))
-			\item \textbf{offer\_id:} Mã ưu đãi (Foreign key offer(id))
-			\item \textbf{menu\_item\_id:} Mã mặt hàng (Foreign key menu\_item(id))
+			\item \textbf{id:} Primary key
+			\item \textbf{placed\_order\_id:} Foreign key placed\_order(id)
+			\item \textbf{offer\_id:} Foreign key offer(id)
+			\item \textbf{menu\_item\_id:} Foreign key menu\_item(id)
 			\item \textbf{quantity:} Số lượng mua
 			\item \textbf{item\_price:} Giá lẻ
 			\item \textbf{price:} Tổng giá
-			\item \textbf{Comment:} Lưu ý của khách hàng (giao 11h30 chả hạn)
+			\item \textbf{comment:} Lưu ý của khách hàng
 		\end{itemize}
 	\end{frame}
 	
 	\begin{frame}{Comment}
 		\begin{itemize}
-			\item \textbf{id:}
-			\item \textbf{placed\_order\_id:} Mã đơn đặt hàng (Foreign key placed\_order(id))
-			\item \textbf{customer\_id:} Mã khách hàng (Foreign key customer(id))
+			\item \textbf{id:} Primary key
+			\item \textbf{placed\_order\_id:} Foreign key placed\_order(id)
+			\item \textbf{customer\_id:} Foreign key customer(id)
 			\item \textbf{comment\_text:} Đánh giá của khách hàng
-			\item \textbf{is\_complaint:} Có phải lời phàn nàn không?
-			\item \textbf{is\_complaint:} Có phải lời khen không?
+			\item \textbf{vote:} Đánh giá trên thang 5 sao, nhận giá trị null nếu khách hàng không đánh giá
 		\end{itemize}
 	\end{frame}
 	\section{Restaurant}
-	\begin{frame}
+	\begin{frame}[plain, noframenumbering]
 		\textcolor{structure}{\Huge{\textbf{Restaurant}}}
 	\end{frame}
 	\begin{frame}{Restaurant}
@@ -164,9 +163,10 @@
 	\end{frame}
 	\begin{frame}{Menu item}
 		\begin{itemize}
-			\item \textbf{id:} Mã món ăn (Primary key)
+			\item \textbf{id:} Primary key
 			\item \textbf{item\_name:} Tên món ăn
 			\item \textbf{category\_name:} Phân loại
+			\item \textbf{image:} Hình ảnh
 			\item \textbf{description:} Mô tả
 			\item \textbf{ingredients:} Nguyên liệu
 			\item \textbf{price:} Giá
@@ -176,16 +176,16 @@
 	
 	\begin{frame}{Restaurant}
 		\begin{itemize}
-			\item \textbf{id: } Mã nhà hàng
+			\item \textbf{id:} Primary key
 			\item \textbf{restaurant\_name:} Tên nhà hàng
-			\item \textbf{address:} Địa chỉ
+			\item \textbf{restaurant\_address:} Địa chỉ
 		\end{itemize}
 	\end{frame}
 	
 	\begin{frame}{Menu restaurant}
 		%Lưu thông tin thực đơn của các nhà hàng (món ăn nào thuộc nhà hàng nào)
 		\begin{itemize}
-			\item \textbf{id: } Mã
+			\item \textbf{id:} Primary key
 			\item \textbf{menu\_item\_id: } Foreign key menu\_item(id)
 			\item \textbf{restaurant\_id: } Foreign key restaurant(id)
 		\end{itemize}
@@ -193,7 +193,7 @@
 	
 	\begin{frame}{Offer}
 		\begin{itemize}
-			\item \textbf{id: } Mã ưu đãi
+			\item \textbf{id:} Primary key
 			\item \textbf{data\_active\_from:} Ngày bắt đầu kích hoạt
 			\item \textbf{time\_active\_from:} Giờ bắt đầu kích hoạt
 			\item \textbf{data\_active\_to:} Ngày kết thúc kích hoạt
@@ -204,7 +204,7 @@
 	\begin{frame}{In offer}
 		%Lưu thông tin giảm giá với mặt hàng tương ứng (sale thì mỗi mặt hàng 1 kiểu)
 		\begin{itemize}
-			\item \textbf{id: } Mã
+			\item \textbf{id:} Primary key
 			\item \textbf{offer\_id: } Foreign key offer(id)
 			\item \textbf{menu\_item\_id: } Foreign key menu\_item(id)
 			\item \textbf{restaurant\_id: } Foreign key restaurant(id)
@@ -213,7 +213,7 @@
 
 	
 	
-	\begin{frame}
+	\begin{frame}[plain, noframenumbering]
 		\Huge{\centerline{\textbf{The End}}}
 	\end{frame}
 	
