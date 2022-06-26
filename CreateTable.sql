@@ -56,7 +56,7 @@ CREATE TABLE menu_item (
     id int  NOT NULL,
     item_name nvarchar(255)  NOT NULL,
     category_name nvarchar(255)  NOT NULL,
-    image image  NOT NULL,
+    image text  NOT NULL,
     description text  NOT NULL,
     ingredients text  NOT NULL,
     price int  NOT NULL,
@@ -116,6 +116,7 @@ CREATE TABLE restaurant (
     id int  NOT NULL,
     restaurant_name nvarchar(255)  NOT NULL,
     restaurant_address nvarchar(255)  NOT NULL,
+    restaurant_image text  NOT NULL,
     CONSTRAINT restaurant_pk PRIMARY KEY  (id)
 );
 
