@@ -88,7 +88,7 @@ CREATE TABLE order_status (
     id int  NOT NULL,
     placed_order_id int  NOT NULL,
     time_order time  NOT NULL,
-    order_status nvarchar(255)  NOT NULL CHECK(status_name IN ('ADDED_TO_CART','CONFIRMED','PAYMENT_CONFIRMED','DELIVERED')),
+    order_status nvarchar(255)  NOT NULL CHECK(order_status IN ('ADDED_TO_CART','CONFIRMED','PAYMENT_CONFIRMED','DELIVERED')),
     payment_status nvarchar(255)  NOT NULL CHECK(payment_status IN('NOT_CONFIRMED','CONFIRMED')) DEFAULT 'NOT_CONFIRMED',
     CONSTRAINT order_status_pk PRIMARY KEY  (id)
 );
