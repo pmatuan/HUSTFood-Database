@@ -97,72 +97,6 @@
 			\label{fig:ass1}
 		\end{figure}
 	\end{frame}
-	\section{Order}
-	\begin{frame}[plain, noframenumbering]
-		\textcolor{structure}{\Huge{\textbf{Order}}}
-	\end{frame}
-	\begin{frame}{Order}
-		\begin{figure}[ht!]
-			\centerline{\includegraphics[width=1\textwidth]{order.png}}
-			\label{fig:ass1}
-		\end{figure}
-	\end{frame}
-	\begin{frame}{Placed Order}
-		\begin{itemize}
-			\item \textbf{id:} Primary key
-			\item \textbf{customer\_id:} Foreign key customer(id)
-			\item \textbf{restaurant\_id:} Foreign key restaurant(id)
-			\item \textbf{price:} Giá ban đầu
-			\item \textbf{discount:} Giảm giá 
-			\item \textbf{delivery\_fee: }Phí vận chuyển
-			\item \textbf{final\_price:} Giá phải trả
-			\item \textbf{payment\_type:} Hình thức thanh toán
-			\item \textbf{delivery\_address:} Địa chỉ giao hàng 
-			\item \textbf{estimated\_delivery\_time:} Thời gian dự kiến giao hàng
-			\item \textbf{food\_ready:} Đồ ăn đã sẵn sàng chưa
-			\item \textbf{comment:} Lưu ý của khách hàng
-			\item \textbf{deliveried:} Đã được giao hay chưa
-		\end{itemize}
-	\end{frame}
-	
-	\begin{frame}{Order status}
-		\begin{itemize}
-			\item \textbf{id:} Primary key
-			\item \textbf{placed\_order\_id:} Foreign key placed\_order(id)
-			\item \textbf{time\_order:} Thời gian đặt hàng
-			\item \textbf{order\_status:} Trạng thái đơn hàng (Thêm vào giỏ/ Xác nhận/ Đã thanh toán / Đã giao)
-			\item \textbf{payment\_status:} Trạng thái thanh toán
-		\end{itemize}
-	\end{frame}
-	
-	\begin{frame}{In order}
-		\begin{itemize}
-			\item \textbf{id:} Primary key
-			\item \textbf{placed\_order\_id:} Foreign key placed\_order(id)
-			\item \textbf{offer\_id:} Foreign key offer(id)
-			\item \textbf{menu\_item\_id:} Foreign key menu\_item(id)
-			\item \textbf{quantity:} Số lượng mua
-			\item \textbf{item\_price:} Giá lẻ
-			\item \textbf{price:} Tổng giá
-			\item \textbf{comment:} Lưu ý của khách hàng
-		\end{itemize}
-	\end{frame}
-	
-	\begin{frame}{Comment}
-		\begin{itemize}
-			\item \textbf{id:} Primary key
-			\item \textbf{placed\_order\_id:} Foreign key placed\_order(id)
-			\item \textbf{customer\_id:} Foreign key customer(id)
-			\item \textbf{comment\_text:} Đánh giá của khách hàng
-			\item \textbf{vote:} Đánh giá trên thang 5 sao, nhận giá trị null nếu khách hàng không đánh giá
-		\end{itemize}
-	\end{frame}
-	\begin{frame}{Order}
-		\begin{figure}[ht!]
-			\centerline{\includegraphics[width=1\textwidth]{order.png}}
-			\label{fig:ass1}
-		\end{figure}
-	\end{frame}
 	\section{Restaurant}
 	\begin{frame}[plain, noframenumbering]
 		\textcolor{structure}{\Huge{\textbf{Restaurant}}}
@@ -226,6 +160,72 @@
 	\begin{frame}{Restaurant}
 		\begin{figure}[ht!]
 			\centerline{\includegraphics[width=1\textwidth]{restaurant.png}}
+			\label{fig:ass1}
+		\end{figure}
+	\end{frame}
+	\section{Order}
+	\begin{frame}[plain, noframenumbering]
+		\textcolor{structure}{\Huge{\textbf{Order}}}
+	\end{frame}
+	\begin{frame}{Order}
+		\begin{figure}[ht!]
+			\centerline{\includegraphics[width=1\textwidth]{order.png}}
+			\label{fig:ass1}
+		\end{figure}
+	\end{frame}
+	\begin{frame}{Placed Order}
+		\begin{itemize}
+			\item \textbf{id:} Primary key
+			\item \textbf{customer\_id:} Foreign key customer(id)
+			\item \textbf{restaurant\_id:} Foreign key restaurant(id)
+			\item \textbf{price:} Giá ban đầu
+			\item \textbf{discount:} Giảm giá 
+			\item \textbf{delivery\_fee: }Phí vận chuyển
+			\item \textbf{final\_price:} Giá phải trả
+			\item \textbf{payment\_type:} Hình thức thanh toán
+			\item \textbf{delivery\_address:} Địa chỉ giao hàng 
+			\item \textbf{estimated\_delivery\_time:} Thời gian dự kiến giao hàng
+			\item \textbf{food\_ready:} Đồ ăn đã sẵn sàng chưa
+			\item \textbf{comment:} Lưu ý của khách hàng
+			\item \textbf{deliveried:} Đã được giao hay chưa
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Order status}
+		\begin{itemize}
+			\item \textbf{id:} Primary key
+			\item \textbf{placed\_order\_id:} Foreign key placed\_order(id)
+			\item \textbf{time\_order:} Thời gian đặt hàng
+			\item \textbf{order\_status:} Trạng thái đơn hàng (Thêm vào giỏ/ Xác nhận/ Đã thanh toán / Đã giao)
+			\item \textbf{payment\_status:} Trạng thái thanh toán
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{In order}
+		\begin{itemize}
+			\item \textbf{id:} Primary key
+			\item \textbf{placed\_order\_id:} Foreign key placed\_order(id)
+			\item \textbf{offer\_id:} Foreign key offer(id)
+			\item \textbf{menu\_item\_id:} Foreign key menu\_item(id)
+			\item \textbf{quantity:} Số lượng mua
+			\item \textbf{item\_price:} Giá lẻ
+			\item \textbf{price:} Tổng giá
+			\item \textbf{comment:} Lưu ý của khách hàng
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Comment}
+		\begin{itemize}
+			\item \textbf{id:} Primary key
+			\item \textbf{placed\_order\_id:} Foreign key placed\_order(id)
+			\item \textbf{customer\_id:} Foreign key customer(id)
+			\item \textbf{comment\_text:} Đánh giá của khách hàng
+			\item \textbf{vote:} Đánh giá trên thang 5 sao, nhận giá trị null nếu khách hàng không đánh giá
+		\end{itemize}
+	\end{frame}
+	\begin{frame}{Order}
+		\begin{figure}[ht!]
+			\centerline{\includegraphics[width=1\textwidth]{order.png}}
 			\label{fig:ass1}
 		\end{figure}
 	\end{frame}
