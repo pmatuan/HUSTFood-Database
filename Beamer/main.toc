@@ -1,3 +1,0 @@
-\beamer@sectionintoc {1}{Customer}{5}{0}{1}
-\beamer@sectionintoc {2}{Restaurant}{9}{0}{2}
-\beamer@sectionintoc {3}{Order}{17}{0}{3}

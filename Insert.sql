@@ -1,11 +1,116 @@
-BULK INSERT customer
-FROM '/home/pmat/Desktop/THCSDL/ProjectDB/customer.csv'
-WITH
-(
-    FIRSTROW = 2, -- as 1st one is header
-    FIELDTERMINATOR = ',',  --CSV field delimiter
-    ROWTERMINATOR = '\n',   --Use to shift the control to next row
-    TABLOCK
-)
-INSERT INTO customer
-VALUES (101,'Linh', '0912000602', 'linh@gmail.com', '12345')
+INSERT INTO restaurant(restaurant_name,restaurant_address) VALUES (N'Carrot''s Food - Cơm Gà Online',N'25 Ngách 624/12 Minh Khai, P. Vĩnh Tuy,  Quận Hai Bà Trưng, Hà Nội');
+INSERT INTO restaurant(restaurant_name,restaurant_address) VALUES (N'Yobu - Cơm Gà & Sữa Chua',N'155 Trần Đại Nghĩa, P. Bách Khoa,  Quận Hai Bà Trưng, Hà Nội');
+INSERT INTO restaurant(restaurant_name,restaurant_address) VALUES (N'Chè Anh Đẹp Trai',N'102 Y9 Ngõ Tự Do, P. Đồng Tâm,  Quận Hai Bà Trưng, Hà Nội');
+INSERT INTO restaurant(restaurant_name,restaurant_address) VALUES (N'Chè Cung Đình Huế - Bạch Mai',N'327 Bạch Mai,  Quận Hai Bà Trưng, Hà Nội');
+INSERT INTO restaurant(restaurant_name,restaurant_address) VALUES (N'Phở Bò - Lê Đại Hành',N'33 Lê Đại Hành,  Quận Hai Bà Trưng, Hà Nội');
+INSERT INTO restaurant(restaurant_name,restaurant_address) VALUES (N'Phở Hiển Vinh - Phở Nước & Trộn Bò Gà',N'3 Ngõ 158 Hồng Mai, P. Bạch Mai,  Quận Hai Bà Trưng, Hà Nội');
+INSERT INTO restaurant(restaurant_name,restaurant_address) VALUES (N'Trà Sữa Tocotoco - Times City',N'Tầng Hầm 1,  K9-K10 Đường Thanh Niên, Tầng B1, Tòa T8, TTTM Times City, 458 Minh Khai, P. Vĩnh Tuy,  Quận Hai Bà Trưng, Hà Nội');
+INSERT INTO restaurant(restaurant_name,restaurant_address) VALUES (N'Trà Bí Đao Thanh Nhàn - Trà Bí Đao - Minh Khai',N'448 Minh Khai, P. Vĩnh Tuy,  Quận Hai Bà Trưng, Hà Nội');
+INSERT INTO restaurant(restaurant_name,restaurant_address) VALUES (N'Xôi Thưởng 88 - Xôi Phú Thượng - 83 Mạc Thị Bưởi',N'83 Mạc Thị Bưởi, P. Vĩnh Tuy,  Quận Hai Bà Trưng, Hà Nội');
+INSERT INTO restaurant(restaurant_name,restaurant_address) VALUES (N'Xôi Yến - Bách Khoa',N'106 K2 Ngõ 48 Tạ Quang Bửu, P. Bách Khoa,  Quận Hai Bà Trưng, Hà Nội');
+
+
+
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Cơm Bò Nướng',NULL,NULL,NULL,NULL,N'40000',1,1);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Cơm Gà Nướng',NULL,NULL,NULL,NULL,N'40000',1,1);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Cơm Thịt Heo Nướng',NULL,NULL,NULL,NULL,N'40000',1,1);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trứng Ốp La',NULL,NULL,NULL,NULL,N'12000',1,1);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà Quất Nha Đam',NULL,NULL,NULL,NULL,N'12000',1,1);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Bún Trộn Bò+ Nem Nướng',NULL,NULL,NULL,NULL,N'40000',1,1);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Bún Trộn Nem Nướng',NULL,NULL,NULL,NULL,N'40000',1,1);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Bún Trộn Nem Nướng+ Xúc Xích',NULL,NULL,NULL,NULL,N'40000',1,1);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Bún Trộn Nem Nướng+ Chả Giò+ Xúc Xích',NULL,NULL,NULL,NULL,N'50000',1,1);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Bún Trộn Chả Giò+ Nem Nướng',NULL,NULL,NULL,NULL,N'40000',1,1);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Cơm Gà Teriyaki',NULL,NULL,NULL,NULL,N'51000',1,2);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Cơm Gà Sốt Tiêu Đen - Lớn',NULL,NULL,NULL,NULL,N'55000',1,2);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Cơm Gà Sốt Me - Lớn',NULL,NULL,NULL,NULL,N'55000',1,2);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Bánh Mỳ Gà',NULL,NULL,NULL,NULL,N'25000',1,2);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Cơm Gà Chiên Mắm Tỏi - Lớn',NULL,NULL,NULL,NULL,N'55000',1,2);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Hồng Trà Quất',NULL,NULL,NULL,NULL,N'12000',1,2);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Cam Carot',NULL,NULL,NULL,NULL,N'25000',1,2);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Ổi Ép',NULL,NULL,NULL,NULL,N'25000',1,2);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Chanh Bạc Hà',NULL,NULL,NULL,NULL,N'20000',1,2);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Cam Ép',NULL,NULL,NULL,NULL,N'25000',1,2);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Chè Thập Cẩm',NULL,NULL,NULL,NULL,N'19000',1,3);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Siêu Bưởi - Cốm Lá Nếp Cốt Dừa',NULL,NULL,NULL,NULL,N'22000',1,3);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Hoa Quả Trân Châu Cốt Dừa',NULL,NULL,NULL,NULL,N'19000',1,3);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Caramen Cốt Dừa Trân Châu',NULL,NULL,NULL,NULL,N'22000',1,3);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Sữa Chua Hoa Quả',NULL,NULL,NULL,NULL,N'19000',1,3);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Sữa Chua Mít',NULL,NULL,NULL,NULL,N'19000',1,3);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Sữa Chua Trân Châu Cốt Dừa',NULL,NULL,NULL,NULL,N'19000',1,3);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Caramen Mít Trân Châu',NULL,NULL,NULL,NULL,N'22000',1,3);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Caramen Hoa Quả',NULL,NULL,NULL,NULL,N'22000',1,3);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Sữa Chua Xoài Trân Châu',NULL,NULL,NULL,NULL,N'19000',1,3);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Chè Thập Cẩm',NULL,NULL,NULL,NULL,N'25000',1,4);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Chè Bưởi',NULL,NULL,NULL,NULL,N'25000',1,4);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Chè Thái Sầu Riêng',NULL,NULL,NULL,NULL,N'32000',1,4);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Sữa Chua Mít Xoài',NULL,NULL,NULL,NULL,N'25000',1,4);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Chè Thái',NULL,NULL,NULL,NULL,N'25000',1,4);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Chè Đậu Đỏ',NULL,NULL,NULL,NULL,N'25000',1,4);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Chè Khoai Môn Cốm',NULL,NULL,NULL,NULL,N'25000',1,4);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Chè Bánh Trôi Nước',NULL,NULL,NULL,NULL,N'25000',1,4);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Chè Hạt Sen',NULL,NULL,NULL,NULL,N'27000',1,4);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Chè Thập Cẩm Trái Cây',NULL,NULL,NULL,NULL,N'25000',1,4);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Cơm Rang Dưa Bò',NULL,NULL,NULL,NULL,N'55000',1,5);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Mỳ Xào Cải Bò',NULL,NULL,NULL,NULL,N'55000',1,5);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Cơm Rang Thập Cẩm',NULL,NULL,NULL,NULL,N'55000',1,5);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Cơm Rang Cải bò',NULL,NULL,NULL,NULL,N'55000',1,5);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Phở Tái Chín',NULL,NULL,NULL,NULL,N'50000',1,5);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Phở Nạm Gầu',NULL,NULL,NULL,NULL,N'50000',1,5);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Phở Xào',NULL,NULL,NULL,NULL,N'55000',1,5);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Phở Tái Nạm',NULL,NULL,NULL,NULL,N'50000',1,5);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Phở Bắp Gầu',NULL,NULL,NULL,NULL,N'75000',1,5);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Phở Tái Lăn',NULL,NULL,NULL,NULL,N'55000',1,5);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Phở Gà Trộn Đùi',NULL,NULL,NULL,NULL,N'45000',1,6);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Phở Gà Trộn Cánh',NULL,NULL,NULL,NULL,N'40000',1,6);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Phở Trộn Chân Gà Rút Xương',NULL,NULL,NULL,NULL,N'35000',1,6);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Phở Gà Trộn Sống Lưng',NULL,NULL,NULL,NULL,N'40000',1,6);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Coca',NULL,NULL,NULL,NULL,N'12000',1,6);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Phở gà trộn lẫn',NULL,NULL,NULL,NULL,N'35000',1,6);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Phở gà trộn lườn',NULL,NULL,NULL,NULL,N'35000',1,6);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Phở Gà Lườn',NULL,NULL,NULL,NULL,N'35000',1,6);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Quẩy',NULL,NULL,NULL,NULL,N'5000',1,6);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Phở Gà Đùi',NULL,NULL,NULL,NULL,N'45000',1,6);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà Sữa Trân Châu Hoàng Gia',NULL,NULL,NULL,NULL,N'39100',1,7);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà Sữa Kim Cương Đen Okinawa',NULL,NULL,NULL,NULL,N'39100',1,7);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà Sữa Hạnh Phúc',NULL,NULL,NULL,NULL,N'39100',1,7);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Mua 1 Tặng 1 - Instant Milktea',NULL,NULL,NULL,NULL,N'56000',1,7);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà sữa ToCoToCo vị Truyền thống',NULL,NULL,NULL,NULL,N'20700',1,7);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà sữa ToCoToCo vị Dâu',NULL,NULL,NULL,NULL,N'22500',1,7);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Set 6 ly - Trà sữa ToCoToCo vị Dâu',NULL,NULL,NULL,NULL,N'139500',1,7);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Set 6 ly  - Trà sữa ToCoToCo vị Truyền thống',NULL,NULL,NULL,NULL,N'129600',1,7);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà Sữa Cùng Chill - Cay tê cực mê',NULL,NULL,NULL,NULL,N'65000',1,7);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Combo 2 Trà sữa trân châu hoàng gia (1M + 1L)',NULL,NULL,NULL,NULL,N'98000',1,7);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà Bí đao sương sáo - Hạt chia - 3Q',NULL,NULL,NULL,NULL,N'20000',1,8);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà Bí đao trân châu truyền thống',NULL,NULL,NULL,NULL,N'20000',1,8);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà sữa nướng (YIHEKAONAI)',NULL,NULL,NULL,NULL,N'39000',1,8);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà sữa trân châu trắng',NULL,NULL,NULL,NULL,N'29000',1,8);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà sữa trân châu đường đen',NULL,NULL,NULL,NULL,N'34000',1,8);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà sữa nướng (Alishan)',NULL,NULL,NULL,NULL,N'34000',1,8);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà sữa 3 anh em',NULL,NULL,NULL,NULL,N'34000',1,8);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà sữa Pudding',NULL,NULL,NULL,NULL,N'29000',1,8);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà sữa Hoa quả đặc biệt',NULL,NULL,NULL,NULL,N'34000',1,8);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Trà sữa đậu đỏ - Matcha',NULL,NULL,NULL,NULL,N'34000',1,8);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Xôi xéo + 3 chỉ + trứng kho',NULL,NULL,NULL,NULL,N'40000',1,9);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Xôi xéo+ ruốc',NULL,NULL,NULL,NULL,N'25000',1,9);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Xôii xéo + gà nấm+pate',NULL,NULL,NULL,NULL,N'40000',1,9);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Xôi xéo + ruốc + chả mỡ',NULL,NULL,NULL,NULL,N'30000',1,9);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Xôi xéo + gà nấm',NULL,NULL,NULL,NULL,N'35000',1,9);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Xôi xéo + 3 chỉ+ pate',NULL,NULL,NULL,NULL,N'45000',1,9);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Xôi xéo + gà nấm+  chả mỡ',NULL,NULL,NULL,NULL,N'40000',1,9);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Xôi xéo + 3 chỉ kho',NULL,NULL,NULL,NULL,N'35000',1,9);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Xôi xéo + ruốc + giò',NULL,NULL,NULL,NULL,N'30000',1,9);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Xôi xéo + gà nấm + ruốc',NULL,NULL,NULL,NULL,N'40000',1,9);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Xôi Gà Xào + 01 Coca-Cola',NULL,NULL,NULL,NULL,N'42000',1,10);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Xôi Pate + 01 Coca-Cola',NULL,NULL,NULL,NULL,N'40000',1,10);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Coca-Cola lẻ',NULL,NULL,NULL,NULL,N'12750',1,10);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'02 Combo Xôi Thập Cẩm + 02 Coca-Cola',NULL,NULL,NULL,NULL,N'90000',1,10);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'02 Combo Xôi Ruốc Gà + 02 Coca-Cola',NULL,NULL,NULL,NULL,N'80000',1,10);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'02 Coca-Cola lẻ',NULL,NULL,NULL,NULL,N'25500',1,10);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Coca-Cola chỉ 1Đ',NULL,NULL,NULL,NULL,N'1',1,10);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Xôi Gà Xào + 01 Coca-Cola',NULL,NULL,NULL,NULL,N'42000',1,10);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Xôi Pate + 01 Coca-Cola',NULL,NULL,NULL,NULL,N'40000',1,10);
+INSERT INTO menu_item(item_name,category_name,image,description,ingredients,price,active,restaurant_id) VALUES (N'Coca-Cola lẻ',NULL,NULL,NULL,NULL,N'12750',1,10);
+
+INSERT INTO offer(offer_price)
+VALUES(0);
